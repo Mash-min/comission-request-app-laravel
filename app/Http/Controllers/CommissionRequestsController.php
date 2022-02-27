@@ -25,7 +25,7 @@ class CommissionRequestsController extends Controller
         return response()->json(['message' => 'Request deleted']);
     }
 
-    public function update(CommissionRequestValidation $request, $id)
+    public function update(Request $request, $id)
     {
         $commisionRequest = CommissionRequest::findOrFail($id);
         $commisionRequest->update($request->all());

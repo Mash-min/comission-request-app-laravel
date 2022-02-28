@@ -85,7 +85,7 @@ class CommissionRequestsController extends Controller
 
     public function search($data) 
     {
-        $commissionRequests = CommissionRequest::where('title', 'like', '%'.$data.'%')
+        $commissionRequests = CommissionRequest::where('title', 'LIKE', "%$data%")
                                                 ->orWhere(['price' => $data])
                                                 ->with('user')
                                                 ->with('images')

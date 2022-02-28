@@ -9,14 +9,10 @@ class OfferImagesController extends Controller
 {
     public function create(Request $request)
     {
-        // return $request->all();
-        foreach($request->images as $image)
-        {
-            OfferImage::create([
-                'image' => $image,
-                'offer_id' => $request->offer_id
-            ]);
-        }
+        OfferImage::create([
+            'image' => $request->image,
+            'offer_id' => $request->offer_id
+        ]);
         return response()->json(['message' => 'Offer image added']);
     }
 }
